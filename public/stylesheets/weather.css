@@ -1,0 +1,110 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	background-color: #4480B0;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	width: 100%;
+}
+
+div#icon-container {
+	margin-top: 80px;
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+i {
+	font-size: 12em;
+}
+
+div.left {
+	float: left;
+}
+
+div.right {
+	float: right;
+}
+
+div#text-basic {
+	margin-top: 30px;
+	width: 48%;
+	//padding-left: 10%;
+	color: white;
+	font-weight: 100;
+	//border: 1px solid black;
+}
+
+div#text-basic>div {
+	text-align: center;
+/*	display: inline-block;
+	margin-left: 50%;
+	position: relative;
+	transform: translateX(-50%);*/
+}
+
+div#text-extra {
+	width: 48%;
+	margin-top: 50px;
+	color: white;
+	//padding-right: 7em;
+	//border: 1px solid black;
+}
+
+div#text-basic h1 {
+	font-size: 5em;
+	font-weight: 100;
+	//border: 1px solid black;
+	margin: 0;
+}
+
+div#text-basic p {
+	margin-top: 5px;
+	//border: 1px solid black;
+}
+
+div#text-basic p#weather-description:first-letter {
+	text-transform: uppercase;
+}
+
+div#buttons {
+	text-align: center;
+}
+
+button {
+	position: relative;
+	width: 10vw;
+	background-color: #40C080;
+	border: 0;
+	border-radius: 3px;
+	font-size: 1.2em;
+	color: white;
+	margin: 0;
+	transition: background-color 0.3s;
+}
+
+button:hover:not(.pushed) {
+	top: 1px;
+	cursor: pointer;
+	background-color: #80FFB0;
+}
+
+button:active:not(.pushed) {
+	top: 2px;
+	background-color: #208040;
+	outline: none;
+}
+
+button.pushed {
+	background-color: #208040;
+}
+
+div.text-someextra {
+	display: block;
+	text-align: center;
+	margin-top: 20px;
+	font-size: 1.2em;
+	padding-top: 1px;
+}
+
+div#text-extra div.text-someextra:not(#text-temp) {
+	display: none;
+}
