@@ -39,12 +39,6 @@ function events() {
 					buttonArea.addEventListener("click", switchDisplay);
 				});
 			});
-			/*extraInfoCurrentDiv.className = extraInfoCurrentDiv.className.replace(" current", "");
-			extraInfoCurrentDiv = document.querySelector("div#text-extra div#text-" + button.innerHTML.toLowerCase());
-			extraInfoCurrentDiv.className += " current";
-			selectedButton.className = "";
-			button.className = "pushed";
-			selectedButton = button;*/
 		}
 	}
 

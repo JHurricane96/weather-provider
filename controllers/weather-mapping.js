@@ -1,6 +1,8 @@
 module.exports = {
 	"01d": "wi-day-sunny",
 	"01n": "wi-night-clear",
+	"02d": "wi-day-sunny-overcast",
+	"02n": "wi-night-partly-cloudy",
 	"03d": "wi-cloud",
 	"03n": "wi-cloud",
 	"04d": "wi-cloudy",

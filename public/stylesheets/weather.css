@@ -35,10 +35,6 @@ div#text-basic {
 
 div#text-basic>div {
 	text-align: center;
-/*	display: inline-block;
-	margin-left: 50%;
-	position: relative;
-	transform: translateX(-50%);*/
 }
 
 div#text-extra {
@@ -52,7 +48,7 @@ div#text-extra {
 div#text-basic h1 {
 	font-size: 5em;
 	font-weight: 100;
-	//border: 1px solid black;
+	text-transform: capitalize;
 	margin: 0;
 }
 
@@ -63,38 +59,6 @@ div#text-basic p {
 
 div#text-basic p#weather-description:first-letter {
 	text-transform: uppercase;
-}
-
-div#buttons {
-	text-align: center;
-}
-
-button {
-	position: relative;
-	width: 10vw;
-	background-color: #40C080;
-	border: 0;
-	border-radius: 3px;
-	font-size: 1.2em;
-	color: white;
-	margin: 0;
-	transition: background-color 0.3s;
-}
-
-button:hover:not(.pushed) {
-	top: 1px;
-	cursor: pointer;
-	background-color: #80FFB0;
-}
-
-button:active:not(.pushed) {
-	top: 2px;
-	background-color: #208040;
-	outline: none;
-}
-
-button.pushed {
-	background-color: #208040;
 }
 
 div.text-someextra {
