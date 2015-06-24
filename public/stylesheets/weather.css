@@ -27,10 +27,8 @@ div.right {
 div#text-basic {
 	margin-top: 30px;
 	width: 48%;
-	//padding-left: 10%;
 	color: white;
 	font-weight: 100;
-	//border: 1px solid black;
 }
 
 div#text-basic>div {
@@ -41,8 +39,6 @@ div#text-extra {
 	width: 48%;
 	margin-top: 50px;
 	color: white;
-	//padding-right: 7em;
-	//border: 1px solid black;
 }
 
 div#text-basic h1 {
@@ -54,7 +50,6 @@ div#text-basic h1 {
 
 div#text-basic p {
 	margin-top: 5px;
-	//border: 1px solid black;
 }
 
 div#text-basic p#weather-description:first-letter {

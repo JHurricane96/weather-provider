@@ -9,25 +9,6 @@ function getCookie(cname) {
     return "";
 }
 
-function animate(xfromt, duration, xToProperty, callback) {
-	var t0 = new Date;
-
-	var _animate = setInterval(function () {
-		var t = (new Date - t0)/duration;				
-		if (t>1)
-			t=1;
-
-		var x = xfromt(t);
-
-		xToProperty(x);
-		
-		if (t==1) {
-			clearInterval(_animate);
-			callback();
-		}
-	}, 10);
-}
-
 function main() {
 	var tempGraphCx = document.getElementById("graph-temp").getContext("2d");
 	var rainGraphCx = document.getElementById("graph-rain").getContext("2d");
@@ -52,6 +33,14 @@ function main() {
 		amPm = (Math.floor(hours / 12) == 0) ? " AM" : " PM";
 		hours = (hours == 0) ? "012" : "0" + String(hours % 12);
 		return hours.substr(1) + ":" + minutes.substr(-2) + amPm;
+	});
+
+	tempMin = tempMin.map(function (temp) {
+		return (temp - 273.15).toFixed(3);
+	});
+
+	tempMax = tempMax.map(function (temp) {
+		return (temp - 273.15).toFixed(3);
 	});
 
 	function customTooltip(tooltip) {
@@ -100,16 +89,6 @@ function main() {
 	            pointHighlightStroke: "rgba(255, 80, 40, 1)",
 	            data: tempMax
 	        },
-	        /*{
-	            label: "Minimum temperatures",
-	            fillColor: "rgba(151, 187, 205, 0.3)",
-	            strokeColor: "rgba(151, 187, 205, 1)",
-	            pointColor: "rgba(151, 187, 205, 1)",
-	            pointStrokeColor: "#fff",
-	            pointHighlightFill: "#fff",
-	            pointHighlightStroke: "rgba(151, 187, 205, 1)",
-	            data: tempMin
-	        }*/
 	        {
 	            label: "Minimum temperature",
 	            fillColor: "rgba(255, 165, 0, 0.3)",
@@ -154,14 +133,14 @@ function main() {
 	var tempGraph = new Chart(tempGraphCx).Line(tempData, {
 		scaleIntegersOnly: true,
 		responsive: true,
-		multiTooltipTemplate: "<%= value %>K",
+		multiTooltipTemplate: "<%= value %>&#8451;",
 		customTooltips: customTooltip,
-		maintainAspectRatio: true
+		maintainAspectRatio: false
 	});
 
 	var rainGraph = new Chart(rainGraphCx).Bar(rainData, {
 		responsive: true,
-		maintainAspectRatio: true,
+		maintainAspectRatio: false,
 		barValueSpacing: 1,
 		tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %> mm",
 		scaleShowVerticalLines: false
@@ -169,7 +148,7 @@ function main() {
 
 	var windGraph = new Chart(windGraphCx).Bar(windData, {
 		responsive: true,
-		maintainAspectRatio: true,
+		maintainAspectRatio: false,
 		barValueSpacing: 1,
 		tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %> m/s",
 		scaleShowVerticalLines: false
@@ -189,6 +168,7 @@ function main() {
 			animate(function (t) {return t;}, fadeTime, function (x) {currentCanvas.style.opacity = 1 - x;}, function() {
 				currentCanvas.style.display = "none";
 				currentCanvas = document.querySelector("#graph-container canvas#graph-" + button.innerHTML.toLowerCase());
+				currentCanvas.style.opacity = 0;
 				currentCanvas.style.display = "block";
 				animate(function (t) {return t;}, fadeTime, function (x) {currentCanvas.style.opacity = x;}, function() {
 					buttonArea.addEventListener("click", switchDisplay);
