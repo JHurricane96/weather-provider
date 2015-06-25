@@ -10,6 +10,7 @@
 	</head>
 	<body>
 		<div id="header">
+			<div id="header-greeting">Hello, <%= username + "!" %></div>
 			<span id="header-button-area">
 				<a href="/logout"><div id="logout-button" class="button-header"><img src="/images/logout.svg" /></div><a>
 				<div id="history-button" class="button-header"><img src="/images/history.png" /></div>
@@ -19,9 +20,9 @@
 		<div id="page-container">
 			<div id="search-pane">
 				<form action="users/search" method="get">
-					<div><input type="radio" name="search-type" value="weather">Weather</input>
-					<input type="radio" name="search-type" value="forecast">Forecast</input></div>
-					<div><label>City: </label><input type="text" name="city"></input></div>
+					<div><span><input type="radio" name="search-type" value="weather" required>Weather</input></span>
+					<span><input type="radio" name="search-type" value="forecast" required>Forecast</input><span></div>
+					<div><label>City: </label><input type="text" name="city" required></input></div>
 					<button type="submit">Search</button>
 				</form>
 			</div>

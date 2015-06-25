@@ -1,3 +1,33 @@
+@media (max-width: 600px) {
+	div.left {
+		float: none;
+		margin: auto;
+	}
+
+	div#text-basic h1 {
+		font-size: 2em;
+	}
+
+	div.right {
+		float: none;
+		margin: auto;
+	}
+
+	#buttons button {
+		margin-bottom: 10px;
+	}
+
+}
+
+@media (min-width: 600px) {
+	div.left {
+		float: left;
+	}
+	div.right {
+		float: right;
+	}
+}
+
 html, body {
 	padding: 0;
 	margin: 0;
@@ -17,11 +47,11 @@ i {
 }
 
 div.left {
-	float: left;
+	//float: left;
 }
 
 div.right {
-	float: right;
+	//float: right;
 }
 
 div#text-basic {
@@ -41,7 +71,7 @@ div#text-extra {
 	color: white;
 }
 
-div#text-basic h1 {
+#text-basic h1 {
 	font-size: 5em;
 	font-weight: 100;
 	text-transform: capitalize;

@@ -3,6 +3,7 @@ var initdb = require("../controllers/initdb");
 var checkDB = require("../controllers/checkdb");
 var session = require("express-session");
 var path = require("path");
+var sha1 = require("sha1");
 var router = express.Router();
 
 router.get("/logout", function (req, res, next) {
@@ -47,7 +48,7 @@ router.post("/login", function (req, res, next) {
 			req.session.save();
 		}
 		else {
-			if (data["password"] != req.body["password"] || !/^[0-9a-zA-Z_.]+$/.test(req.body["password"])) {
+			if (data["password"] != sha1(req.body["password"]) || !/^[0-9a-zA-Z_.]+$/.test(req.body["password"])) {
 				res.redirect("/login/retry");
 				req.session["login"] = "Wrong password";
 				req.session.save();
@@ -94,6 +95,7 @@ router.post("/register", function (req, res, next) {
 	usersColl = db.collection("users");
 	if(validateRegistration()) {
 		data.searches = [];
+		data.password = sha1(data.password);
 		usersColl.insert(data, {w: 1}, function (err) {
 			if (err)
 				return next(new Error("Username exists"));

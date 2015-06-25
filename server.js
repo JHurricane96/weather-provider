@@ -1,7 +1,6 @@
 var express = require("express");
 var routerWeather = require("./routes/router-weather");
 var routerLogin = require("./routes/router-login");
-var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var session = require("express-session");
 var initdb = require("./controllers/initdb");

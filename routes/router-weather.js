@@ -29,11 +29,11 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/search", function (req, res, next) {
-	if (req.query.city && req.query["search-type"]) {
-		if (["forecast", "weather"].indexOf(req.query["search-type"]) == -1)
-			return next(new Error("Improper query"));
-		res.redirect(req.query["search-type"] + "?city=" + req.query.city);
-	}
+	if (!req.query.city || !req.query["search-type"])
+		return next(new Error("Improper query"));
+	if (["forecast", "weather"].indexOf(req.query["search-type"]) == -1)
+		return next(new Error("Improper query"));
+	res.redirect(req.query["search-type"] + "?city=" + req.query.city);
 });
 
 router.get("/weather", function (req, res, next) {
