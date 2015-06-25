@@ -9,7 +9,7 @@ Build Instructions
 ------------------
 
 Install Node and MongoDB on your system, and place all the files in any folder. Using Node's package manager npm, install all
-the dependencies mentioned below. They should go into the node_modules folder inside the working directory. Also, download the Chart.js module and place the file Chart.js in /public/javascripts. Now, run the script entitled `first-time.js` (`node first-time.js`). This sets up the database on your system. Finally, run server.js.
+the dependencies mentioned below. They should go into the node_modules folder inside the working directory. Also, download the Chart.js module and place the file Chart.js in /public/javascripts. From the weather icons repository, place the font folder inside /public, and place weather-icons.css (inside the css folder in the repo) inside /public/stylesheets. Now, run the script entitled `first-time.js` (`node first-time.js`). This sets up the database on your system. Finally, run server.js.
 
 Usage
 -----
@@ -57,3 +57,4 @@ Links
 * [Path](https://nodejs.org/api/path.html): Handles and transforms file and folder paths.
 * [sha1](https://www.npmjs.com/package/sha1): Hashing module. Uses the SHA1 algorithm.
 * [Chart.js](http://www.chartjs.org): A module for making charts quickly.
+* [Weather icons](https://github.com/erikflowers/weather-icons): A CSS module for simple weather icons.

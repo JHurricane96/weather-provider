@@ -1,2 +1,4 @@
 /node_modules/
 /public/javascripts/Chart.js
+/public/font/
+/public/stylesheets/weather-icons.css
